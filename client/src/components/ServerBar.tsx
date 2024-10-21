@@ -1,4 +1,3 @@
-import { Button } from "flowbite-react";
 import { ServerI } from "../models";
 
 interface ServerBarPropsI{
@@ -8,13 +7,12 @@ export function ServerBar(props:ServerBarPropsI):JSX.Element{
   const {ServerArray} = {...props}
 
   return (
-    <div className="w-20 h-full p-2">
-      <div className="w-16 h-16 bg-black transition ease-in-out delay-150 rounded-full hover:rounded-2xl ">
-        p
-      </div>
-      <Button className="w-16 h-16 transition ease-in-out delay-150 rounded-full hover:rounded-2xl ">
-        @me
-      </Button>
-    </div>
+    <ul className="w-20 h-full p-2">
+      <li 
+        className="w-16 h-16 bg-gray-500 rounded-50 hover:rounded-2xl transition-all duration-300"
+      >
+        me
+      </li>
+    </ul>
   )
 }
