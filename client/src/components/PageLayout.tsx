@@ -12,7 +12,7 @@ export function PageLayout(props:PageLayoutPropsI):JSX.Element{
       <div>
         Page Layout works
       </div>
-      <div>
+      <div className="bg-bg1 text-text">
         Theme is: {theme}
         <Button onClick={()=>setTheme(THEME[(THEME.indexOf(theme)+1)%THEME.length])}>
           cycle Theme
