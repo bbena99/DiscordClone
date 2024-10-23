@@ -1,23 +1,9 @@
-import { Button } from "flowbite-react";
-import { THEME } from "../constants";
+import { Outlet } from "react-router-dom";
 
-interface PageLayoutPropsI{
-  theme:string;
-  setTheme:(t:string)=>void;
-}
-export function PageLayout(props:PageLayoutPropsI):JSX.Element{
-  const {theme,setTheme} = {...props};
+export function PageLayout():JSX.Element{
   return (
-    <>
-      <div>
-        Page Layout works
-      </div>
-      <div className="bg-bg1 text-text">
-        Theme is: {theme}
-        <Button onClick={()=>setTheme(THEME[(THEME.indexOf(theme)+1)%THEME.length])}>
-          cycle Theme
-        </Button>
-      </div>
-    </>
+    <div className="w-full h-screen bg-bg2 text-text">
+      <Outlet/>
+    </div>
   )
 }
