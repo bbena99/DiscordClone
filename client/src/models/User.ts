@@ -6,7 +6,7 @@ export interface UserI{
   directMessageKeys:string[];
 }
 
-export function staticUsers():UserI{
+export function blankUser():UserI{
   return {
     name:'Static User',
     nameNoSpace:'Static-User',
