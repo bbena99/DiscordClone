@@ -19,10 +19,11 @@ export function Settings(props:SettingsPropsI){
               onClick={()=>{
                 if(constTheme===theme)return;
                 setTheme(constTheme);
+                localStorage.setItem('theme',constTheme);
               }}
               className= {`w-14 h-14 m-2 rounded-full focus:ring-0 ${theme===constTheme?('border-4 border-bg1'):('')}`}
               style={{backgroundColor:`var(--color-${constTheme})`}}
-            />
+            >{''}</Button>
           )
         })}
       </div>
