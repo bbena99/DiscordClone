@@ -1,3 +1,10 @@
 .rounded-50{
   border-radius: 50%;
 }
+.hiddenscroll::-webkit-scrollbar{
+  display: none;
+}
+.hiddenscroll{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
