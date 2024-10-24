@@ -10,7 +10,7 @@ function App() {
   const data = blankData();
   const user = blankUser();
   return (
-    <div className={`flex ${theme} w-full bg-bg2`}>
+    <div className={`flex ${theme} w-full bg-bg1`}>
       <ServerBar ServerArray={data}/>
       <BrowserRouter>
         <Routes>
