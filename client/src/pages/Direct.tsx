@@ -1,6 +1,8 @@
 import { Button, TextInput } from "flowbite-react";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
+import { MdSportsVolleyball } from "react-icons/md";
+import { PiShoppingCartFill } from "react-icons/pi";
 
 interface DirectPropsI{
   friends:string[];
@@ -15,15 +17,15 @@ export function Direct(props:DirectPropsI){
       </div>
       <div className="w-full p-3 [&>button]:w-full [&>button]:bg-bg2 [&>button]:text-header [&>button]:!justify-start">
         <Button className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
-          <BsPersonPlusFill/>&nbsp;
+          <BsPersonPlusFill className="text-xl"/>&nbsp;
           Friends
         </Button>
         <Button className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
-          <BsPersonPlusFill/>&nbsp;
+          <MdSportsVolleyball className="text-xl"/>&nbsp;
           Nitro
         </Button>
         <Button className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
-          <BsPersonPlusFill/>&nbsp;
+          <PiShoppingCartFill className="text-xl"/>&nbsp;
           Shop
         </Button>
       </div>
