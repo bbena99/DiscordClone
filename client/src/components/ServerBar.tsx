@@ -13,7 +13,7 @@ export function ServerBar(props:ServerBarPropsI):JSX.Element{
   const [newServerModal,setNewServerModal] = useState<boolean>(false);
   return (
     <div className="w-20 h-screen bg-bg1 flex flex-wrap">
-      <ul className="overflow-y-auto hiddenscroll" style={{height:'calc(100% - 5rem)'}}>
+      <ul className="overflow-y-auto hiddenscroll shadow-inner shadow-bg1" style={{height:'calc(100% - 5rem)'}}>
         <li 
           className="w-16 h-16 m-2 bg-bg2 text-header hover:!rounded-3xl transition-all duration-300 overflow-hidden"
           style={{borderRadius:'50%'}}
