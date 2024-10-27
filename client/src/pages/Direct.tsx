@@ -1,8 +1,10 @@
 import { Button, TextInput } from "flowbite-react";
+import { useState } from "react";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 import { MdSportsVolleyball } from "react-icons/md";
 import { PiShoppingCartFill } from "react-icons/pi";
+import { FriendsM } from "../components";
 
 interface DirectPropsI{
   friends:string[];
@@ -10,15 +12,20 @@ interface DirectPropsI{
 }
 export function Direct(props:DirectPropsI){
   const {friends,directMessages} = {...props}
+  const [showFriends,setShowFriends] = useState<boolean>(false);
   return <>
     <div id='subchannel_selector' className="w-60 h-full bg-bg2">
       <div id="Search_container" className="w-full h-14 p-3">
         <TextInput type="TextInput" placeholder="Find or Start a Conversation" className="h-full [&>div]:h-full [&>div>input]:h-full"/>
       </div>
       <div className="w-full p-3 [&>button]:w-full [&>button]:bg-bg2 [&>button]:text-header [&>button]:!justify-start">
-        <Button className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
+        <Button
+          className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center"
+          onClick={()=>setShowFriends(true)}
+        >
           <BsPersonPlusFill className="text-xl"/>&nbsp;
           Friends
+          <FriendsM show={showFriends} setShow={(b:boolean)=>setShowFriends(b)} friends={friends} />
         </Button>
         <Button className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
           <MdSportsVolleyball className="text-xl"/>&nbsp;
