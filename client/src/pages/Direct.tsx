@@ -4,7 +4,7 @@ import { BsPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 import { MdSportsVolleyball } from "react-icons/md";
 import { PiShoppingCartFill } from "react-icons/pi";
-import { FriendsM } from "../components";
+import { FriendsC } from "../components";
 
 interface DirectPropsI{
   friends:string[];
@@ -12,7 +12,6 @@ interface DirectPropsI{
 }
 export function Direct(props:DirectPropsI){
   const {friends,directMessages} = {...props}
-  const [showFriends,setShowFriends] = useState<boolean>(false);
   return <div className="flex w-full h-full">
     <div id='subchannel_selector' className="w-60 h-full bg-bg2">
       <div id="Search_container" className="w-full h-14 p-3">
@@ -25,7 +24,6 @@ export function Direct(props:DirectPropsI){
         >
           <BsPersonPlusFill className="text-xl"/>&nbsp;
           Friends
-          <FriendsM show={showFriends} setShow={(b:boolean)=>setShowFriends(b)} friends={friends} />
         </Button>
         <Button className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
           <MdSportsVolleyball className="text-xl"/>&nbsp;
@@ -52,6 +50,7 @@ export function Direct(props:DirectPropsI){
     </div>
     <div>
       
+    <FriendsC friends={friends} />
     </div>
   </div>
 }
