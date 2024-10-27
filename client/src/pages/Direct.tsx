@@ -13,7 +13,7 @@ interface DirectPropsI{
 export function Direct(props:DirectPropsI){
   const {friends,directMessages} = {...props}
   const [showFriends,setShowFriends] = useState<boolean>(false);
-  return <>
+  return <div className="flex w-full h-full">
     <div id='subchannel_selector' className="w-60 h-full bg-bg2">
       <div id="Search_container" className="w-full h-14 p-3">
         <TextInput type="TextInput" placeholder="Find or Start a Conversation" className="h-full [&>div]:h-full [&>div>input]:h-full"/>
@@ -50,5 +50,8 @@ export function Direct(props:DirectPropsI){
         })}
       </div>
     </div>
-  </>
+    <div>
+      
+    </div>
+  </div>
 }
