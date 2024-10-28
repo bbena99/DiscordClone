@@ -12,22 +12,22 @@ export function FriendsC(props:FriendsMPropsI){
           <BsPersonPlus className="text-2xl"/>&nbsp;
           Friends
         </Button>
-        <Button className="[&>span]:p-1 mx-0.5">
+        <Button className="[&>span]:p-1 mx-1">
           Online
         </Button>
-        <Button className="[&>span]:p-1 mx-0.5">
+        <Button className="[&>span]:p-1 mx-1">
           All
         </Button>
-        <Button className="[&>span]:p-1 mx-0.5">
+        <Button className="[&>span]:p-1 mx-1">
           Pending
         </Button>
-        <Button className="[&>span]:p-1 mx-0.5">
+        <Button className="[&>span]:p-1 mx-1">
           Suggestions
         </Button>
-        <Button className="[&>span]:p-1 mx-0.5">
+        <Button className="[&>span]:p-1 mx-1">
           Blocked
         </Button>
-        <Button className="[&>span]:p-1 mx-0.5">
+        <Button className="[&>span]:p-1 mx-1">
           Add Friend
         </Button>
       </div>
