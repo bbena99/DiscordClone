@@ -1,5 +1,4 @@
 import { Button, TextInput } from "flowbite-react";
-import { useState } from "react";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa";
 import { MdSportsVolleyball } from "react-icons/md";
@@ -20,7 +19,6 @@ export function Direct(props:DirectPropsI){
       <div className="w-full p-3 [&>button]:w-full [&>button]:bg-bg2 [&>button]:text-header [&>button]:!justify-start">
         <Button
           className="[&>span]:py-0.5 [&>span]:text-lg [&>span]:font-semibold [&>span]:flex [&>span]:items-center"
-          onClick={()=>setShowFriends(true)}
         >
           <BsPersonPlusFill className="text-xl"/>&nbsp;
           Friends
@@ -41,16 +39,15 @@ export function Direct(props:DirectPropsI){
         </div>
         {directMessages.map((curMessage:string)=>{
           return(
-            <Button className="w-full bg-bg2 text-text justify-start [&>span]:py-0.5 [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
+            <Button key={curMessage} className="w-full bg-bg2 text-text justify-start [&>span]:py-0.5 [&>span]:font-semibold [&>span]:flex [&>span]:items-center">
               {curMessage}
             </Button>
           )
         })}
       </div>
     </div>
-    <div>
-      
-    <FriendsC friends={friends} />
+    <div className="w-full h-full">
+      <FriendsC friends={friends} />
     </div>
   </div>
 }
