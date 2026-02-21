@@ -30,6 +30,10 @@ class Friends(models.Model):
     models.ForeignKey(Users, on_delete=models.CASCADE)
   ]
   Chanel = models.ForeignKey(Channels, on_delete=models.CASCADE)
+
+class UsersToServers(models.Model):
+  user = models.ForeignKey(Users, on_delete=models.CASCADE)
+  server = models.ForeignKey(Servers, on_delete=models.CASCADE)
   
 class ServerToFolders(models.Model):
   server = models.ForeignKey(Servers, on_delete=models.CASCADE)
