@@ -1,5 +1,5 @@
 # custom Server ignores
-./server/temp/*
+./server/temp/**
 
 # Logs
 logs
