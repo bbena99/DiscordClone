@@ -6,44 +6,49 @@ Documentation link: https://docs.djangoproject.com/en/6.0/topics/db/models/
 """
 
 # Start of base model Tables
-class Users(models.Model):
-  name = models.CharField(max_length=50)
-
-class Servers(models.Model):
-  name = models.CharField(max_length=50)
-
-class Folders(models.Model):
-  name = models.CharField(max_length=50)
+class Messages(models.Model):
+  text = models.CharField(max_length=500)
 
 class Channels(models.Model):
   name = models.CharField(max_length=50)
-  type = models.BigIntegerField()
+  type = models.BigIntegerField()#Will be used for Text channels or Voice channels
+  messages = models.ManyToManyField(Messages)
 
-class Messages(models.Model):
-  Channel = models.ForeignKey(Channels, on_delete=models.CASCADE)
-  text = models.CharField(max_length=500)
+class Folders(models.Model):
+  name = models.CharField(max_length=50)
+  channels = models.ManyToManyField(Channels)
 
-# Start of Relation Tables
-class Friends(models.Model):
-  Users = [
-    models.ForeignKey(Users, on_delete=models.CASCADE),
-    models.ForeignKey(Users, on_delete=models.CASCADE)
-  ]
-  Chanel = models.ForeignKey(Channels, on_delete=models.CASCADE)
+class Servers(models.Model):
+  name = models.CharField(max_length=50)
+  folders = models.ManyToManyField(Folders)
 
-class UsersToServers(models.Model):
-  user = models.ForeignKey(Users, on_delete=models.CASCADE)
-  server = models.ForeignKey(Servers, on_delete=models.CASCADE)
-  
-class ServerToFolders(models.Model):
-  server = models.ForeignKey(Servers, on_delete=models.CASCADE)
-  folder = models.ForeignKey(Folders, on_delete=models.CASCADE)
+class Users(models.Model):
+  name = models.CharField(max_length=50)
+  friends = models.ManyToManyField("self",symmetrical=False, blank=True)
+  servers = models.ManyToManyField(Servers, symmetrical=True, blank=True)
+  def __str__(self):
+    return self.name
 
-class FolderToChannels(models.Model):
-  folder = models.ForeignKey(Folders, on_delete=models.CASCADE)
-  channel = models.ForeignKey(Channels, on_delete=models.CASCADE)
+class FriendRequest(models.Model):
+  from_user = models.ForeignKey(Users, on_delete=models.CASCADE, related_name="request_sender")
+  to_user = models.ForeignKey(Users, on_delete=models.CASCADE, related_name="request_receiver")
+  status = models.CharField(
+    max_length=10,
+    choices=[
+      ("pending","Pending"),
+      ("accepted", "Accepted"),
+      ("blocked", "Blocked"),
+    ],
+    default="pending"
+  )
 
-class ChannelToMessage(models.Model):
-  Channel = models.ForeignKey(Channels, on_delete=models.CASCADE)
-  Message = models.ForeignKey(Messages, on_delete=models.CASCADE)
-  time = models.DateTimeField(auto_now_add=True)
+class ServerInvite(models.Model):
+  server=models.ForeignKey(Servers,on_delete=models.CASCADE)
+  status = models.CharField(
+    max_length=10,
+    choices=[
+      ("active","Active"),
+      ("disabled","Disabled")
+    ],
+    default="active"
+  )
