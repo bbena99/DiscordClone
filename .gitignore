@@ -1,3 +1,6 @@
+# custom Server ignores
+./server/temp/*
+
 # Logs
 logs
 *.log
